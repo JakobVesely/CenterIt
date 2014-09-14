@@ -6,6 +6,8 @@
 
 		var settings = $.extend({
 			parent: 'body',
+			vertical: true,
+			horizontal: true,
 			autoListener: true,
 			position: 'absolute'
 		}, options);
@@ -16,10 +18,16 @@
 			var left = ($(settings.parent).width()/2) - (self.width()/2);
 
 			self.css({
-				'position': settings.position,
-				'top': top + "px",
-				'left': left + "px"
+				'position': settings.position
 			});
+			
+			if(settings.vertical){
+				self.css({'top': top + "px"});	
+			}
+			
+			if(settings.horizontal){
+				self.css({'left': left + "px"});	
+			}
 		};
 
 		$(window).resize(function() {
